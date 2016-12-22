@@ -1,0 +1,12 @@
+<h1> <%= @robot.handle %></h1>
+
+<form action ='/robots/<%=@robot.id %>/tweets' method='post'>
+  <input type='submit' value= "generate a tweet!" />
+</form>
+<div class='robot-tweets-list'>
+
+<% @tweets.each do |tweet| %>
+  <%= erb :"/tweets/_show", {layout: false, locals: {:tweet => tweet}} %>
+<% end %>
+
+</div>

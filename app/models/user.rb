@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :things
+  has_many :tweets
   validates :username, uniqueness: true
 
   def password

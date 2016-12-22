@@ -4,6 +4,7 @@ class CreateTweetTable < ActiveRecord::Migration
       t.string   :content
       t.string   :comment
       t.integer   :user_id
-      t.integer   :author_id null:false
+      t.integer   :robot_id, null: false
+    end
   end
 end

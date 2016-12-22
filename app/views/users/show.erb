@@ -1,6 +1,9 @@
 <h1>Hello, <%= @user.username %>!</h1>
-<ul>
-  <% @things.each do |thing| %>
-    <li><a href="/things/<%= thing.id %>"><%= thing.name %></a></li>
+<ul class="user-tweets-list">
+  <% @tweets.each do |tweet| %>
+    <li>
+      <h4>tweet.robot</h4>
+      <%= erb :"/tweets/_show", {layout: false, locals: {:tweet => tweet}} %>
+    </li>
   <% end %>
 </ul>
