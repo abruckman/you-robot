@@ -3,7 +3,7 @@ class CreateTweetTable < ActiveRecord::Migration
     create_table :tweets do |t|
       t.string   :content
       t.string   :comment
-      t.string   :user_id
-      t.string   :author_id null:false
+      t.integer   :user_id
+      t.integer   :author_id null:false
   end
 end
