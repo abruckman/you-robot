@@ -26,6 +26,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     concurrent-ruby (1.0.3)
+    cowsay (0.3.0)
     database_cleaner (1.4.1)
     diff-lcs (1.2.5)
     domain_name (0.5.20161129)
@@ -128,6 +129,7 @@ DEPENDENCIES
   activesupport
   bcrypt
   capybara
+  cowsay
   database_cleaner (~> 1.4.1)
   factory_girl
   faker

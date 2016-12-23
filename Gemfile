@@ -14,9 +14,11 @@ gem 'markov_chains'
 gem 'twitter'
 
 gem 'rake'
+gem 'cowsay'
 
 gem 'shotgun'
 gem 'bcrypt'
+gem 'dotenv'
 
 group :test do
   gem 'database_cleaner', '~> 1.4.1'
