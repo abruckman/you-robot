@@ -36,7 +36,11 @@ a {
 }
 
 .tweet {
-  border: 1px solid grey;
+
+}
+
+#content{
+  margin: 0 auto;
 }
 
 .control-span {
