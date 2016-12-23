@@ -1,10 +1,11 @@
 <img src= '<%= @robot.image_url %>'>
 
 <h1> <%= @robot.handle %></h1>
-
+<% if current_user %>
 <form class='create-tweet-form' action ='/robots/<%=@robot.id %>/tweets' method='post'>
   <input type='submit' value= "generate a tweet!" />
 </form>
+<% end %>
 <div class='robot-tweets-list'>
 
 <% @tweets.each do |tweet| %>

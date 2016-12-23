@@ -22,7 +22,7 @@ post '/robots/:robot_id/tweets' do
   end
   @tweet.content = tweet
   if request.xhr?
-    "*"*50
+    @tweet.save
     erb :"/tweets/_show", {layout: false, locals: {:tweet => @tweet}}
   else
     if @tweet.save

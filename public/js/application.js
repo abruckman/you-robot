@@ -16,7 +16,6 @@ var makeTweet = function (){
     event.preventDefault();
     var route = $(this).attr('action');
     var button = this
-    console.log('hit')
     var submit = $.ajax({
       url: route,
       method: 'post'
