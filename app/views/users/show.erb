@@ -1,9 +1,12 @@
 <h1>Hello, <%= @user.username %>!</h1>
 <ul class="user-tweets-list">
   <% @tweets.each do |tweet| %>
+    <% break if @tweets.index(tweet) > 5 %>
     <li>
-      <h4>tweet.robot</h4>
+      <h4><a href='/robots/<%=tweet.robot.id%>'><%= tweet.robot.handle %></a></h4>
       <%= erb :"/tweets/_show", {layout: false, locals: {:tweet => tweet}} %>
     </li>
   <% end %>
 </ul>
+
+<a href='/robots/new'>make a new robot</a>

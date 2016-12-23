@@ -1,12 +1,18 @@
+<img src= '<%= @robot.image_url %>'>
+
 <h1> <%= @robot.handle %></h1>
 
-<form action ='/robots/<%=@robot.id %>/tweets' method='post'>
+<form class='create-tweet-form' action ='/robots/<%=@robot.id %>/tweets' method='post'>
   <input type='submit' value= "generate a tweet!" />
 </form>
 <div class='robot-tweets-list'>
 
 <% @tweets.each do |tweet| %>
+  <% break if @tweets.index(tweet) > 5 %>
+
   <%= erb :"/tweets/_show", {layout: false, locals: {:tweet => tweet}} %>
+
 <% end %>
 
 </div>
+<a href='/robots/new'>make a new robot</a>

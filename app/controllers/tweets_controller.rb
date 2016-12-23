@@ -20,15 +20,16 @@ post '/robots/:robot_id/tweets' do
     tweet = generator.get_sentences(1)
     tweet = tweet[0]
   end
-  p tweet
   @tweet.content = tweet
-  p "*" * 25
-  p @tweet.content
-
-  if @tweet.save
-    redirect "/robots/#{@robot.id}"
+  if request.xhr?
+    "*"*50
+    erb :"/tweets/_show", {layout: false, locals: {:tweet => @tweet}}
   else
-    erb :'tweets/new' #show new tweets view again(potentially displaying errors)
+    if @tweet.save
+      redirect "/robots/#{@robot.id}"
+    else
+      erb :'tweets/new' #show new tweets view again(potentially displaying errors)
+    end
   end
 
 end

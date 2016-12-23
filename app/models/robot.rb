@@ -12,9 +12,11 @@ class Robot < ActiveRecord::Base
   def create_library
     user_tweets = []
 
-    @client.user_timeline(screen_name: self.handle, include_rts: false, count: 1000).each do |tweet|
+    api_return = @client.user_timeline(screen_name: self.handle, include_rts: false, count: 1000)
+    api_return.each do |tweet|
        user_tweets << tweet.text
     end
+    self.image_url = api_return[1].user.profile_image_url
     user_tweets.length
 
     self.library = user_tweets.join(" ").gsub(/http\S*\s/, "")
