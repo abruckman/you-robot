@@ -1,6 +1,6 @@
 #content {
-  width: 100%;
-  height: 100vh;
+  width: 800px;
+  /*height: 100vh;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,6 +33,10 @@ a {
   text-decoration: underline;
   cursor: pointer;
   padding: 0;
+}
+
+.tweet {
+  border: 1px solid grey;
 }
 
 .control-span {

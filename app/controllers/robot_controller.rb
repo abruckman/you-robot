@@ -15,6 +15,8 @@ post '/robots' do
     @robot.newClient #create new robot
     @robot.create_library
 
+    # if get 'https://twitter.com/users/username_available?username=whatever'
+
     # p "^v"*50
     # p @robot.library
     # p "^v"*50
