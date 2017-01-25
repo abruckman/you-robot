@@ -3,7 +3,5 @@ class Tweet < ActiveRecord::Base
   belongs_to :robot
   belongs_to :user
 
-  def generate_content
-    
-  end
+
 end
