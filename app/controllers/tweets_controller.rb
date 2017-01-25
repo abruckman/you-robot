@@ -11,16 +11,9 @@ end
 post '/robots/:robot_id/tweets' do
 
   @robot = Robot.find(params[:robot_id])
-
-  @tweet = @robot.tweets.new()
-  generator = MarkovChains::Generator.new(@robot.library)
-  @tweet.user = current_user
-  tweet = ''
-  until tweet.length.between?(90,120)
-    tweet = generator.get_sentences(1)
-    tweet = tweet[0]
-  end
-  @tweet.content = tweet
+  p @robot
+  p @robot.library
+  @tweet = @robot.new_tweet
   if request.xhr?
     @tweet.save
     erb :"/tweets/_show", {layout: false, locals: {:tweet => @tweet}}

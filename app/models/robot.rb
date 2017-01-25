@@ -1,6 +1,7 @@
 class Robot < ActiveRecord::Base
   # Remember to create a migration!
   has_many :tweets
+  attr_accessor :client
   def newClient
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
@@ -21,5 +22,17 @@ class Robot < ActiveRecord::Base
 
     self.library = user_tweets.join(" ").gsub(/http\S*\s/, "")
     self.library
+  end
+
+  def new_tweet
+    new_tweet = self.tweets.new()
+    generator =MarkovChains::Generator.new(self.library)
+    tweet = ''
+    until tweet.length.between?(90,120)
+      tweet = generator.get_sentences(1)
+      tweet = tweet[0]
+    end
+    new_tweet.content = tweet
+    new_tweet
   end
 end
